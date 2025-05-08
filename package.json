@@ -39,7 +39,7 @@
     "@types/lozad": "^1.16.4",
     "crypto-js": "^4.2.0",
     "github-slugger": "^2.0.0",
-    "mdast-util-toc": "^8.0.0",
+    "mdast-util-toc": "^7.1.0",
     "mdast-util-to-string": "^4.0.0",
     "pagefind": "^1.3.0",
     "prettier": "^3.4.2",
