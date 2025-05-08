@@ -2,15 +2,15 @@ import I18nKeys from "./src/locales/keys";
 import type { Configuration } from "./src/types/config";
 
 const YukinaConfig: Configuration = {
-  title: "Yukina",
-  subTitle: "Yukina Template Demo Site",
-  brandTitle: "Yukina",
+  title: "Wuhx",
+  subTitle: "——blog",
+  brandTitle: "Wuhx",
 
   description: "Demo Site",
 
-  site: "https://yukina-blog.vercel.app",
+  site: "https://xinhuiwu914.github.io/",
 
-  locale: "en", // set for website language and date format
+  locale: "zh-CN", // set for website language and date format
 
   navigators: [
     {
@@ -31,13 +31,13 @@ const YukinaConfig: Configuration = {
     },
   ],
 
-  username: "WhitePaper 白芷",
-  sign: "Ad Astra Per Aspera.",
+  username: "Wuhx",
+  sign: "Hello World.",
   avatarUrl: "https://s2.loli.net/2025/01/25/FPpTrQSezM8ivbl.webp",
   socialLinks: [
     {
       icon: "line-md:github-loop",
-      link: "https://github.com/WhitePaper233",
+      link: "https://github.com/xinhuiwu914",
     },
     {
       icon: "mingcute:bilibili-line",
@@ -46,7 +46,7 @@ const YukinaConfig: Configuration = {
     {
       icon: "mingcute:netease-music-line",
       link: "https://music.163.com/#/user/home?id=125291648",
-    },
+    },//这个地方可以换gmail
   ],
   maxSidebarCategoryChip: 6, // It is recommended to set it to a common multiple of 2 and 3
   maxSidebarTagChip: 12,
