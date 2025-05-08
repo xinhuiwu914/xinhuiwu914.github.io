@@ -14,6 +14,7 @@ interface Props {
   };
   author?: string;
   sourceLink?: string;
+  tocHTMLString?: string;
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   license,
   author,
   sourceLink,
+  tocHTMLString,
 } = Astro.props;
 ---
 
@@ -56,5 +58,20 @@ const {
   .article {
     @apply flex flex-col;
     font-size: var(--primary-font);
+  }
+
+  /* 目录样式 */
+  :global(.toc-container) {
+    @apply mb-6 rounded-lg bg-[var(--card-color-lighten)] p-4;
+  }
+  :global(.toc-item) {
+    @apply py-1;
+  }
+  :global(.toc-item a) {
+    @apply text-[var(--text-color-lighten)] hover:text-[var(--primary-color)] transition-colors;
+    font-size: 0.9em;
+  }
+  :global(.toc-children) {
+    @apply ml-4 mt-1;
   }
 </style>

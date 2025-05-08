@@ -3,6 +3,26 @@ import { getCollection } from "astro:content";
 import { IdToSlug } from "../../utils/hash";
 import PostLayout from "../../layouts/PostLayout.astro";
 import { render } from "astro:content";
+import { remarkTOC } from "../../plugins/remark-toc.mjs";
+
+// 生成目录的函数
+function generateTOC(toc: any) {
+  if (!toc) return '';
+  
+  function renderTOC(items: any[]): string {
+    return items.map(item => {
+      const children = item.children ? renderTOC(item.children) : '';
+      return `
+        <div class="toc-item">
+          <a href="#${item.slug}">${item.title}</a>
+          ${children ? `<div class="toc-children">${children}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+  }
+
+  return `<div class="toc-container">${renderTOC(toc)}</div>`;
+}
 
 export async function getStaticPaths() {
   const postEntries = await getCollection("posts");
@@ -13,7 +33,10 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content } = await render(entry, {
+  remarkPlugins: [remarkTOC]
+});
+const tocHTMLString = generateTOC(entry.data.toc);
 ---
 
 {
@@ -23,6 +46,7 @@ const { Content } = await render(entry);
       subTitle={entry.data.description}
       bannerImage={entry.data.cover}
       published={entry.data.published}
+      tocHTMLString={tocHTMLString}
     >
       <div
         class="hidden"
@@ -48,6 +72,7 @@ const { Content } = await render(entry);
       license={{ name: entry.data.licenseName, url: entry.data.licenseUrl }}
       author={entry.data.author}
       sourceLink={entry.data.sourceLink}
+      tocHTMLString={tocHTMLString}
     >
       <div
         class="hidden"
