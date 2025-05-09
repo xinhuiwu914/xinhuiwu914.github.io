@@ -43,7 +43,7 @@ const YukinaConfig: Configuration = {
   // 个人签名
   sign: "Hello World.",
   // 头像URL
-  avatarUrl: "https://s2.loli.net/2025/01/25/FPpTrQSezM8ivbl.webp",
+  avatarUrl: "/images/avatar.jpg",
   // 社交媒体链接
   socialLinks: [
     {
